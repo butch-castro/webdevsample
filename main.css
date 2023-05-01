@@ -1,0 +1,33 @@
+.container{
+    text-align: center;
+    margin: auto;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container-forms{
+    font-family:'Montserrat';
+    padding-top: 20%;
+}
+
+.form-btn {
+    border-radius: 15%;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.form-btn:hover{
+    background-color: rgb(233, 8, 0) ; /* Green */
+    color: white;
+}
+
+.buttons {
+    padding-top: 50px;
+    margin: auto;
+}
