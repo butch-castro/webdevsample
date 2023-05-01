@@ -2,11 +2,23 @@
     text-align: center;
     margin: auto;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    align-items: center;
 }
 
 .container-forms{
     font-family:'Montserrat';
-    padding-top: 20%;
+    padding-top: 1%;
+}
+
+.container-user{
+    margin: auto;
+}
+
+.container-logout {
+    margin: auto;
+    position: absolute;
+    bottom: 5%;
+    right: 5%
 }
 
 .form-btn {
