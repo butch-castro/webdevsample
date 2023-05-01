@@ -18,6 +18,8 @@ if(isset($_POST['submit'])){
     } else {
         echo "Wrong login details entered";
     }
+} else if (isset($_POST['backtologin'])){
+    header('location:login.php');
 };
 
 ?>
@@ -51,7 +53,7 @@ if(isset($_POST['submit'])){
             </div>
 
             <div class="container-logout">
-                <a href="login.php"><button class="form-btn">Back to User Login</button></a>
+               <button class="form-btn" name="backtologin">Back to User Login</button></a>
             </div>
         </form>
     </div>

@@ -5,24 +5,31 @@
 
 
 if(isset($_POST['submit'])){
-    $username = mysqli_real_escape_string($conn, $_POST['username']);  
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
-    $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $mobile_number = mysqli_real_escape_string($conn, $_POST['mobile_number']);
-    $date_created = date("Y-m-d");
+    
+    if($_POST['username'] == '' || $_POST['password'] == '' || $_POST['first_name'] == '' || $_POST['last_name'] == '' || $_POST['email'] == '' || $_POST['mobile_number'] == ''){
+        $error[] = 'Please input in all fields';
+    } else {
+        $username = mysqli_real_escape_string($conn, $_POST['username']);  
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+        $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $mobile_number = mysqli_real_escape_string($conn, $_POST['mobile_number']);
+        $date_created = date("Y-m-d");
 
-    $select = "SELECT * FROM `user_account` WHERE email = '$email' && password = '$password' ";
-    $result = mysqli_query($conn, $select);
+        $select = "SELECT * FROM `user_account` WHERE email = '$email' && password = '$password' ";
+            $result = mysqli_query($conn, $select);
 
-    if(mysqli_num_rows($result) > 0){
-        $error[] = 'User already exists';
-    } else{
-        $insert = "INSERT INTO user_account(username, first_name, last_name, email, mobile_number, password, date_created) VALUES('$username','$first_name','$last_name','$email','$mobile_number','$password', '$date_created')";
-        mysqli_query($conn, $insert);
-        header('location:login.php');
+        if(mysqli_num_rows($result) > 0){
+            $error[] = 'User already exists';
+        } else{
+            $insert = "INSERT INTO user_account(username, first_name, last_name, email, mobile_number, password, date_created) VALUES('$username','$first_name','$last_name','$email','$mobile_number','$password', '$date_created')";
+            mysqli_query($conn, $insert);
+            header('location:login.php');
+        }
     }
+
+    
 } else if (isset($_POST['backtoadmin'])){
     header('location:admin.php');
 };
@@ -72,7 +79,7 @@ if(isset($_POST['submit'])){
             </div>
 
             <div class="container-logout">
-              <button class="form-btn" name="backtoadmin">Back to Admin Dashboard</button>
+                <button class="form-btn" name="backtoadmin">Back to Admin Dashboard</button>
             </div>
         </form>
 
