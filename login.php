@@ -1,3 +1,28 @@
+<?php
+
+
+@include 'config.php';
+
+session_start();
+
+if(isset($_POST['submit'])){
+    $username = mysqli_real_escape_string($conn, $_POST['username']);  
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+
+    $select = "SELECT * FROM `user_account` WHERE username = '$username' && password = '$password' ";
+    $result = mysqli_query($conn, $select);
+
+    if(mysqli_num_rows($result) > 0){
+        $_SESSION['username'] = $row['first_name'];
+        header('location:user.php');
+    } else {
+        echo "Wrong login details entered";
+    }
+};
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,18 +37,27 @@
 
 <body>
     <div class="container">
-        <h1>Login Page</h1>
-        <div class="container-forms">
-            <p>Username:</p>
-            <input type="text">
-            <p>Password:</p>
-            <input type="password">
-        </div>
+        <form action="" method="post">
+            <h1>Login Page</h1>
+            <?php
+            if(isset($error)) {
+                foreach($error as $error){
+                    echo '<span class="error-msg">'.$error.'</span>';
+                };
+            };
+            ?>
+            <div class="container-forms">
+                <p>Username:</p>
+                <input type="text" name="username">
+                <p>Password:</p>
+                <input type="password" name="password">
+            </div>
 
-        <div class="buttons">
-            <button class="form-btn">Login</button>
-            <a href="adminlogin.php"><button class="form-btn">Admin Login</button></a>
-        </div>
+            <div class="buttons">
+                <button class="form-btn" name='submit'>Login</button>
+            </div>
+        </form>
+        <a href="adminlogin.php"><button class="form-btn">Admin Login</button></a>
     </div>
 
 

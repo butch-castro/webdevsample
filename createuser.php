@@ -23,6 +23,8 @@ if(isset($_POST['submit'])){
         mysqli_query($conn, $insert);
         header('location:login.php');
     }
+} else if (isset($_POST['backtoadmin'])){
+    header('location:admin.php');
 };
 
 ?>
@@ -70,7 +72,7 @@ if(isset($_POST['submit'])){
             </div>
 
             <div class="container-logout">
-                <a href="admin.php"><button class="form-btn">Back to Admin Dashboard</button></a>
+              <button class="form-btn" name="backtoadmin">Back to Admin Dashboard</button>
             </div>
         </form>
 
