@@ -16,7 +16,7 @@
         
         <div class="container-product">
             <div class="buttons">
-                <button class="form-btn">Add Product</button>
+                <a href="addproduct.php"><button class="form-btn">Add  Product</button></a>
                 <button class="form-btn">Edit Product</button>
                 <button class="form-btn">Remove Product</button>
             </div>
