@@ -6,19 +6,23 @@
 session_start();
 
 if(isset($_POST['submit'])){
-    $username = mysqli_real_escape_string($conn, $_POST['username']);  
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-
-    $select = "SELECT * FROM `user_account` WHERE username = '$username' && password = '$password' ";
-    $result = mysqli_query($conn, $select);
-
-    if(mysqli_num_rows($result) > 0){
-        $_SESSION['username'] = $row['first_name'];
-        header('location:user.php');
+    if($_POST['username'] == '' || $_POST['password'] == ''){
+        $error[] = 'Please input in all fields';
     } else {
-        echo "Wrong login details entered";
+        $username = mysqli_real_escape_string($conn, $_POST['username']);  
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+    
+        $select = "SELECT * FROM `user_account` WHERE username = '$username' && password = '$password' ";
+        $result = mysqli_query($conn, $select);
+    
+        if(mysqli_num_rows($result) > 0){
+            $_SESSION['$username'] = $row['name'];
+            header('location:user.php');
+        } else {
+            echo "Wrong login details entered";
+        }
     }
+    
 };
 
 ?>

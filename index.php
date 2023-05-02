@@ -1,6 +1,12 @@
 <?php
+
+
 @include 'config.php';
 
+
+if(isset($_POST['submit'])){
+    header('location:login.php');
+};
 
 ?>
 
@@ -18,12 +24,12 @@
 
 <body>
     <div class="container">
-        <h1>User Page</h1>
-
-        <div class="container-logout">
-            <a href="login.php"><button class="form-btn">Log Out</button></a>
-        </div>
-        
+        <form action="" method="post">
+            <h1>Home</h1>
+            <div class="buttons">
+                <button class="form-btn" name='submit'>Enter</button>
+            </div>
+        </form>
     </div>
 
 
