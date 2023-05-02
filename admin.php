@@ -23,7 +23,7 @@
         </div>
 
         <div class="container-user">
-            <button class="form-btn">Manage Users</button>
+            <a href="manageuser.php"><button class="form-btn">Manage Users</button></a>
             <a href="createuser.php"><button class="form-btn">Create User</button></a>
         </div>
 
