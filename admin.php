@@ -18,7 +18,7 @@
             <div class="buttons">
                 <a href="addproduct.php"><button class="form-btn">Add  Product</button></a>
                 <button class="form-btn">Edit Product</button>
-                <button class="form-btn">Remove Product</button>
+                <a href="removeproduct.php"><button class="form-btn">Remove Product</button></a>
             </div>
         </div>
 
