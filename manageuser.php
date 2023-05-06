@@ -44,6 +44,8 @@
                     <th>Password</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
@@ -55,9 +57,15 @@
                     <td><?php echo $row['password']; ?></td>
                     <td><?php echo $row['first_name']; ?></td>
                     <td><?php echo $row['last_name']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['mobile_number']; ?></td>
                     <td>
-                        <a href="manageuser.php?username=<?php echo $row['username']; ?>"><Button class="form-btn">Delete</Button></a>
+                        <a href="edituser.php?username=<?php echo $row['username']; ?>"><Button class="form-btn">Edit</Button></a>
                     </td>
+                    <td>
+                        <a href="manageuser.php?username=<?php echo $row['username']; ?>"><Button class="form-btn delete">Delete</Button></a>
+                    </td>
+                    
                     
                 </tr>
             <?php } ?>

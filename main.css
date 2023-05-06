@@ -30,6 +30,8 @@
     background: #ccc;
     width: 50%;
     justify-content: space-evenly;
+    width: 20%;
+    padding-bottom: 5%;
 }
 
 .form-btn {
@@ -57,8 +59,14 @@
     justify-content: center;
 }
 
-.form-btn.delete-user {
-    height: 70%;
+.form-btn.delete {
+    color: white;
+    background-color: rgb(233, 8, 0);
+}
+
+.form-btn.delete:hover {
+    color: rgb(233, 8, 0);
+    background-color: white;
 }
 
 .users {
@@ -94,7 +102,7 @@ tr {
 th, td{
     border: none;
     height: 30px;
-    padding: 2px;
+    padding: 20px;
 }
 tr:hover {
     background: #F5F5F5;
@@ -103,4 +111,8 @@ tr:hover {
 .container.manage {
     display: flex;
     justify-content: space-evenly;
+}
+
+body {
+    justify-content: center;
 }

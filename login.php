@@ -41,27 +41,30 @@ if(isset($_POST['submit'])){
 
 <body>
     <div class="container">
-        <form action="" method="post">
-            <h1>Login Page</h1>
-            <?php
-            if(isset($error)) {
-                foreach($error as $error){
-                    echo '<span class="error-msg">'.$error.'</span>';
+        <div class="menu">
+            <form action="" method="post">
+                <h1>Login Page</h1>
+                <?php
+                if(isset($error)) {
+                    foreach($error as $error){
+                        echo '<span class="error-msg">'.$error.'</span>';
+                    };
                 };
-            };
-            ?>
-            <div class="container-forms">
-                <p>Username:</p>
-                <input type="text" name="username">
-                <p>Password:</p>
-                <input type="password" name="password">
-            </div>
+                ?>
+                <div class="container-forms">
+                    <p>Username:</p>
+                    <input type="text" name="username">
+                    <p>Password:</p>
+                    <input type="password" name="password">
+                </div>
 
-            <div class="buttons">
-                <button class="form-btn" name='submit'>Login</button>
-            </div>
-        </form>
-        <a href="adminlogin.php"><button class="form-btn">Admin Login</button></a>
+                <div class="buttons">
+                    <button class="form-btn" name='submit'>Login</button>
+                </div>
+            </form>
+            <a href="adminlogin.php"><button class="form-btn">Admin Login</button></a>
+        </div>
+
     </div>
 
 

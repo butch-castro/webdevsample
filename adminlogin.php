@@ -38,24 +38,26 @@ if(isset($_POST['submit'])){
 
 <body>
     <div class="container">
-        <form action="" method="post">
-            <h1>Admin Login Page</h1>
-            <div class="container-forms">
-                <p>Username:</p>
-                <input type="text" name="username">
-                <p>Password:</p>
-                <input type="password" name="password">
-            </div>
+        <div class="menu">
+            <form action="" method="post">
+                <h1>Admin Login Page</h1>
+                <div class="container-forms">
+                    <p>Username:</p>
+                    <input type="text" name="username">
+                    <p>Password:</p>
+                    <input type="password" name="password">
+                </div>
 
-            <div class="buttons">
-                <button class="form-btn" name="submit">Login as Admin</button>
+                <div class="buttons">
+                    <button class="form-btn" name="submit">Login as Admin</button>
 
-            </div>
+                </div>
 
-            <div class="container-logout">
-               <button class="form-btn" name="backtologin">Back to User Login</button></a>
-            </div>
-        </form>
+                <div class="container-logout">
+                <button class="form-btn" name="backtologin">Back to User Login</button></a>
+                </div>
+            </form>
+        </div>
     </div>
 
 
