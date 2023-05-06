@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
         } else{
             $insert = "INSERT INTO user_account(username, first_name, last_name, email, mobile_number, password, date_created) VALUES('$username','$first_name','$last_name','$email','$mobile_number','$password', '$date_created')";
             mysqli_query($conn, $insert);
-            header('location:login.php');
+            header('location:admin.php');
         }
     }
 

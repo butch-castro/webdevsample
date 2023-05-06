@@ -14,19 +14,24 @@
     <div class="container">
         <h1>Admin Page</h1>
         
-        <div class="container-product">
+        <div class="menu">
             <div class="buttons">
-                <a href="addproduct.php"><button class="form-btn">Add  Product</button></a>
+                <a href="addproduct.php"><button class="form-btn">Add Product</button></a> 
+            </div>
+            <div class="buttons">
                 <button class="form-btn">Edit Product</button>
+            </div>
+            <div class="buttons">
                 <a href="removeproduct.php"><button class="form-btn">Remove Product</button></a>
             </div>
+            <div class="buttons">
+                <a href="manageuser.php"><button class="form-btn">Manage Users</button></a>
+            </div>
+            <div class="buttons">
+                <a href="createuser.php"><button class="form-btn">Create User</button></a>
+            </div>
         </div>
-
-        <div class="container-user">
-            <a href="manageuser.php"><button class="form-btn">Manage Users</button></a>
-            <a href="createuser.php"><button class="form-btn">Create User</button></a>
-        </div>
-
+        
         <div class="container-logout">
             <a href="login.php"><button class="form-btn">Log Out</button></a>
         </div>

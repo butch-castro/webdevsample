@@ -36,8 +36,8 @@
         if(mysqli_num_rows($result) > 0){
                 while($row = $result->fetch_assoc()) {
                     echo '<div class="container-product"><p>
-                    Product: ' . $row["product_name"] . ' 
-                    Price: ' . $row["product_price"] . '</p></div>';
+                        Product: ' . $row["product_name"] . ' Price: ' . $row["product_price"] . 
+                    '</p></div>';
                 }                   
             } else {
                 echo "no users found";

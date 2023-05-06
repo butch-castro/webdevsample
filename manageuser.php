@@ -1,17 +1,20 @@
 <?php
+
     @include 'config.php';
 
-    if(isset($_POST['submit'])){
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-
-    $select = "DELETE FROM `user_account` WHERE username = '$username'";
-    $result = mysqli_query($conn, $select);
+    if(isset($_GET['username'])){
+        $username = mysqli_real_escape_string($conn, $_GET['username']);
+        $result = mysqli_query($conn, "DELETE FROM `user_account` WHERE username = '$username'");
+        echo `$result`;
+    }
     
-    echo `$result`;
-    } else if(isset($_POST['backtoadmin'])){
+    if(isset($_POST['backtoadmin'])){
         header('location:admin.php');
     };
+
+    
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,40 +28,51 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container manage">
         <h1>Manage Users</h1>
-        <form action="" method="post">
-        <?php
-    
-        $query = "SELECT * FROM `user_account`";
-        $result = mysqli_query($conn, $query);
+
+
         
-        if(mysqli_num_rows($result) > 0){
-                while($row = $result->fetch_assoc()) {
-                    echo '<div class="container-product"><p>
-                    Username: ' . $row["username"] . ' 
-                    </p></div>';
-                }                   
-            } else {
-                echo "no users found";
-            } 
-      
+        <?php 
+            $query = "SELECT * FROM `user_account`";
+            $results = mysqli_query($conn, $query);
         ?>
-        <div class="container-forms">
-            <p>Username:</p>
-            <input type="text" name="username">
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
 
-        <div class="container-user">
-            <button class="form-btn" name="submit">Delete</button>
-        </div>
-
-        <div class="container-logout">
-            <button class="form-btn" name="backtoadmin">Back to Admin Dashboard</button>
-        </div>
+            
+            <?php while ($row = mysqli_fetch_array($results)) { ?>
+                <tr>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['password']; ?></td>
+                    <td><?php echo $row['first_name']; ?></td>
+                    <td><?php echo $row['last_name']; ?></td>
+                    <td>
+                        <a href="manageuser.php?username=<?php echo $row['username']; ?>"><Button class="form-btn">Delete</Button></a>
+                    </td>
+                    
+                </tr>
+            <?php } ?>
+            
+        </table>
+            
+        
+        
+        <form action="" method="post">
+            <div class="container-logout">
+                <button class="form-btn delete-user" name="backtoadmin">Back to Admin Dashboard</button>
+            </div>
         </form>
-
     </div>
+
 
 
 </body>

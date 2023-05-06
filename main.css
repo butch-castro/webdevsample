@@ -1,16 +1,19 @@
 .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     margin: auto;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     align-items: center;
 }
 
-.container-forms{
+.container-forms {
     font-family:'Montserrat';
     padding-top: 1%;
 }
 
-.container-user{
+.container-user {
     margin: auto;
 }
 
@@ -21,6 +24,14 @@
     right: 5%
 }
 
+.container > .menu {
+    color: black;
+    border: 1px solid #000;
+    background: #ccc;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
 .form-btn {
     border-radius: 1%;
     border: none;
@@ -28,7 +39,7 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
@@ -42,4 +53,54 @@
 .buttons {
     padding-top: 50px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.form-btn.delete-user {
+    height: 70%;
+}
+
+.users {
+    color: black;
+    border: 1px solid #000;
+    background: #ccc;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-btn {
+    display: flex;
+    justify-content: center;
+    padding: 20 10 20 10;
+}
+
+table{
+    width: 50%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+tr {
+    border-bottom: 1px solid #cbcbcb;
+}
+th, td{
+    border: none;
+    height: 30px;
+    padding: 2px;
+}
+tr:hover {
+    background: #F5F5F5;
+}
+
+.container.manage {
+    display: flex;
+    justify-content: space-evenly;
 }
