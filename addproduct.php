@@ -47,6 +47,7 @@ if(isset($_POST['submit'])){
 
 <body>
     <div class="container">
+        <div class="menu">
         <form action="" method="post">
             <h1>Add Product</h1>
             <?php
@@ -71,6 +72,8 @@ if(isset($_POST['submit'])){
                 <button class="form-btn" name="backtoadmin">Back to Admin Dashboard</button>
             </div>
         </form>
+        </div>
+        
 
 
 

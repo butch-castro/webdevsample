@@ -19,17 +19,15 @@
                 <a href="addproduct.php"><button class="form-btn">Add Product</button></a> 
             </div>
             <div class="buttons">
-                <button class="form-btn">Edit Product</button>
-            </div>
-            <div class="buttons">
-                <a href="removeproduct.php"><button class="form-btn">Remove Product</button></a>
-            </div>
-            <div class="buttons">
-                <a href="manageuser.php"><button class="form-btn">Manage Users</button></a>
+                <a href="manageproduct.php"><button class="form-btn">Manage Products</button></a>
             </div>
             <div class="buttons">
                 <a href="createuser.php"><button class="form-btn">Create User</button></a>
             </div>
+            <div class="buttons">
+                <a href="manageuser.php"><button class="form-btn">Manage Users</button></a>
+            </div>
+            
         </div>
         
         <div class="container-logout">

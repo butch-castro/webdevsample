@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
         $date_created = date("Y-m-d");
 
         $select = "SELECT * FROM `user_account` WHERE email = '$email' && password = '$password' ";
-            $result = mysqli_query($conn, $select);
+        $result = mysqli_query($conn, $select);
 
         if(mysqli_num_rows($result) > 0){
             $error[] = 'User already exists';
@@ -50,6 +50,7 @@ if(isset($_POST['submit'])){
 
 <body>
     <div class="container">
+        <div class="menu">
         <form action="" method="post">
             <h1>Create User</h1>
             <?php
@@ -82,6 +83,8 @@ if(isset($_POST['submit'])){
                 <button class="form-btn" name="backtoadmin">Back to Admin Dashboard</button>
             </div>
         </form>
+        </div>
+        
 
 
 
