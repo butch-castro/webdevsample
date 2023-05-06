@@ -46,10 +46,11 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-    <div class="container">
+    <div class="container short-form">
+        <h1>Add Product</h1>
         <div class="menu">
         <form action="" method="post">
-            <h1>Add Product</h1>
+            
             <?php
             if(isset($error)) {
                 foreach($error as $error){

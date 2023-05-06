@@ -50,9 +50,9 @@ if(isset($_POST['submit'])){
 
 <body>
     <div class="container">
+        <h1>Create User</h1>
         <div class="menu">
         <form action="" method="post">
-            <h1>Create User</h1>
             <?php
             if(isset($error)) {
                 foreach($error as $error){

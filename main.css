@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.short-form {
+    padding-top: 5%;
+}
+
 .container-forms {
     font-family:'Montserrat';
     padding-top: 1%;

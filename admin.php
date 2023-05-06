@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container short-form">
         <h1>Admin Page</h1>
         
         <div class="menu">

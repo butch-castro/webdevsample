@@ -37,10 +37,11 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-    <div class="container">
+    <div class="container short-form">
+    <h1>Admin Login Page</h1>
         <div class="menu">
             <form action="" method="post">
-                <h1>Admin Login Page</h1>
+                
                 <div class="container-forms">
                     <p>Username:</p>
                     <input type="text" name="username">
