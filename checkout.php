@@ -20,8 +20,8 @@ if(isset($_GET['delete'])){
     $result = mysqli_query($conn, "DELETE FROM `cart` WHERE product_name = '$product_name' AND username='$loggedin_user'");
     echo `$result`;
 }
-if(isset($_POST['continueshopping'])){
-    header("location:user.php");
+if(isset($_POST['cart'])){
+    header("location:usercart.php");
     exit;
 }
 if(isset($_POST['checkout'])){
@@ -47,7 +47,7 @@ if(isset($_POST['checkout'])){
 
 <body>
     <div class="container manage">
-        <h1>CART</h1>
+        <h1>CHECKOUT</h1>
 
         <?php 
             $query = "SELECT * FROM `cart` WHERE username='$loggedin_user'";
@@ -60,7 +60,6 @@ if(isset($_POST['checkout'])){
                     <th>Product Name</th>
                     <th>Unit Price</th>
                     <th>Amount</th>
-                    <th colspan="2">Action</th>
                 </tr>
             </thead>
 
@@ -74,12 +73,6 @@ if(isset($_POST['checkout'])){
                     <td><?php echo $row['product_name']; ?></td>
                     <td><?php echo $price_row['product_price']; ?></td>
                     <td><?php echo $row['quantity']; ?></td>
-                    <td>
-                        <a href="addtocart.php?item=<?php echo $row['product_name']; ?>"><Button class="form-btn">Edit</Button></a>
-                    </td>
-                    <td>
-                        <a href="usercart.php?delete=<?php echo $row['product_name']; ?>"><Button class="form-btn delete">Delete</Button></a>
-                    </td>
                 </tr>
                 <?php }?>
                 
@@ -91,10 +84,26 @@ if(isset($_POST['checkout'])){
         
         
         <form action="" method="post">
-            <button class="form-btn" name="checkout">Checkout</button>
-            <div class="container-logout">
-                <button class="form-btn delete-user" name="continueshopping">Continue Shopping</button>
+            <h3>Payment Method</h3>
+            <div class="menu">
+                <input type="radio" id="html" name="paymentmethod" value="COD" checked="true" required>
+                <label>Cash on Delivery</label>
+                <input type="radio" id="css" name="paymentmethod" value="Card" required>
+                <label>Credit Card</label>
+                <input type="radio" id="javascript" name="paymentmethod" value="GCash" required>
+                <label>GCash</label>
             </div>
+            <div class="menu">
+                <h3>Payment Amount:</h3>
+                <input type="number" name="payment" value=0 min=0>
+            </div>
+
+            
+            <button class="form-btn" name="pay">Pay</button>
+            <div class="container-logout">
+                <button class="form-btn delete-user" name="cart">Back to Cart</button>
+            </div>
+        
         </form>
     </div>
 
