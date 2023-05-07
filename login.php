@@ -5,6 +5,11 @@
 
 session_start();
 
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location:user.php");
+    exit;
+}
+
 if(isset($_POST['submit'])){
     if($_POST['username'] == '' || $_POST['password'] == ''){
         $error[] = 'Please input in all fields';
@@ -14,10 +19,13 @@ if(isset($_POST['submit'])){
     
         $select = "SELECT * FROM `user_account` WHERE username = '$username' && password = '$password' ";
         $result = mysqli_query($conn, $select);
-    
+        
         if(mysqli_num_rows($result) > 0){
-            $_SESSION['$username'] = $row['name'];
-            header('location:user.php');
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['loggedin'] = true;
+            
+            header("location:user.php");
         } else {
             echo "Wrong login details entered";
         }

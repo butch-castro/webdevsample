@@ -1,6 +1,20 @@
 <?php
 @include 'config.php';
 
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_SESSION["username"])){
+    header("location: login.php");
+    exit;
+}
+
+if(isset($_POST['logout'])){
+    $_SESSION = array();
+    session_destroy();
+    header("location:login.php");
+    exit;
+}
+
 
 ?>
 
@@ -18,11 +32,15 @@
 
 <body>
     <div class="container">
-        <h1>User Page</h1>
+        <h1>Welcome, <?php echo $_SESSION['username'];?></h1>
+        
 
-        <div class="container-logout">
-            <a href="login.php"><button class="form-btn">Log Out</button></a>
-        </div>
+        <form method="post" action="">
+            <div class="container-logout">
+                <button class="form-btn" name="logout">Log Out</button>
+            </div>
+        </form>
+        
         
     </div>
 

@@ -14,7 +14,9 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($conn, $select);
 
     if(mysqli_num_rows($result) > 0){
+        $_SESSION['adminloggedin'] = true;
         header('location:admin.php');
+        
     } else {
         echo "Wrong login details entered";
     }

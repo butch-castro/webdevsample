@@ -1,3 +1,21 @@
+<?php
+
+@include "config.php";
+
+session_start();
+
+if(!isset($_SESSION["adminloggedin"]) || $_SESSION["adminloggedin"] !== true){
+    header("location: adminlogin.php");
+    exit;
+}
+if(isset($_POST['logout'])){
+    $_SESSION = array();
+    session_destroy();
+    header("location:adminlogin.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -30,8 +48,11 @@
             
         </div>
         
+        <form method="post" action="">
+
+        </form>
         <div class="container-logout">
-            <a href="login.php"><button class="form-btn">Log Out</button></a>
+            <a href="adminlogin.php"><button class="form-btn">Log Out</button></a>
         </div>
         
     </div>
