@@ -3,7 +3,12 @@
 
 @include 'config.php';
 
+session_start();
 
+if(!isset($_SESSION["adminloggedin"]) || $_SESSION["adminloggedin"] !== true){
+    header("location: adminlogin.php");
+    exit;
+}
 if(isset($_POST['submit'])){
     
     if($_POST['username'] == '' || $_POST['password'] == '' || $_POST['first_name'] == '' || $_POST['last_name'] == '' || $_POST['email'] == '' || $_POST['mobile_number'] == ''){

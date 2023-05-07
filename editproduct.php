@@ -3,6 +3,13 @@
 
 @include 'config.php';
 
+session_start();
+
+if(!isset($_SESSION["adminloggedin"]) || $_SESSION["adminloggedin"] !== true){
+    header("location: adminlogin.php");
+    exit;
+}
+
 if (isset($_GET['edit'])) {
     $product_name = mysqli_real_escape_string($conn, $_GET['edit']);
     $result = mysqli_query($conn, "SELECT * FROM `products` WHERE product_name='$product_name'");

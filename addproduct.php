@@ -3,6 +3,12 @@
 
 @include 'config.php';
 
+session_start();
+
+if(!isset($_SESSION["adminloggedin"]) || $_SESSION["adminloggedin"] !== true){
+    header("location: adminlogin.php");
+    exit;
+}
 
 if(isset($_POST['submit'])){
     

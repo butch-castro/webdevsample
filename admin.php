@@ -49,11 +49,11 @@ if(isset($_POST['logout'])){
         </div>
         
         <form method="post" action="">
-
+            <div class="container-logout">
+                <button class="form-btn" name="logout">Log Out</button>
+            </div>
         </form>
-        <div class="container-logout">
-            <a href="adminlogin.php"><button class="form-btn">Log Out</button></a>
-        </div>
+        
         
     </div>
 

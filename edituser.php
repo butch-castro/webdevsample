@@ -3,6 +3,13 @@
 
 @include 'config.php';
 
+session_start();
+
+if(!isset($_SESSION["adminloggedin"]) || $_SESSION["adminloggedin"] !== true){
+    header("location: adminlogin.php");
+    exit;
+}
+
 if (isset($_GET['username'])) {
     $username = mysqli_real_escape_string($conn, $_GET['username']);
     $result = mysqli_query($conn, "SELECT * FROM `user_account` WHERE username='$username'");

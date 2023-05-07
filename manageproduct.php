@@ -1,7 +1,12 @@
 <?php
 
     @include 'config.php';
+    session_start();
 
+    if(!isset($_SESSION["adminloggedin"]) || $_SESSION["adminloggedin"] !== true){
+        header("location: adminlogin.php");
+        exit;
+    }
     if(isset($_GET['delete'])){
         $product_name = mysqli_real_escape_string($conn, $_GET['delete']);
         $result = mysqli_query($conn, "DELETE FROM `products` WHERE product_name = '$product_name'");
