@@ -8,6 +8,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_S
     exit;
 }
 
+$loggedin_user = $_SESSION["username"];
+
 if(isset($_POST['logout'])){
     $_SESSION = array();
     session_destroy();
@@ -15,7 +17,9 @@ if(isset($_POST['logout'])){
     exit;
 }
 
-
+if(isset($_POST['cart'])){
+    header("location:usercart.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +36,45 @@ if(isset($_POST['logout'])){
 
 <body>
     <div class="container">
-        <h1>Welcome, <?php echo $_SESSION['username'];?></h1>
-        
+        <h1>Welcome <?php echo $loggedin_user ?>!</h1>
+
+        <?php 
+            $query = "SELECT * FROM `products`";
+            $results = mysqli_query($conn, $query);
+        ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+
+            
+            <?php while ($row = mysqli_fetch_array($results)) { ?>
+                <tr>
+                    <td><?php echo $row['product_name']; ?></td>
+                    <td><?php echo $row['product_price']; ?></td>
+                    <td>
+                        <a href="addtocart.php?item=<?php echo $row['product_name']; ?>"><Button class="form-btn">Buy</Button></a>
+                    </td>
+                    
+                    
+                </tr>
+            <?php } ?>
+            
+        </table>
 
         <form method="post" action="">
+            <div class="container-cart">
+                <button class="form-btn" name="cart">Cart</button>
+            </div>
             <div class="container-logout">
                 <button class="form-btn" name="logout">Log Out</button>
             </div>
+
+            
         </form>
         
         

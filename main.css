@@ -24,8 +24,15 @@
 .container-logout {
     margin: auto;
     position: absolute;
-    bottom: 5%;
+    top: 5%;
     right: 5%
+}
+
+.container-cart {
+    margin: auto;
+    position: absolute;
+    top: 5%;
+    left: 5%
 }
 
 .container > .menu {
@@ -118,5 +125,16 @@ tr:hover {
 }
 
 body {
+    justify-content: center;
+}
+
+.product-entry {
+
+}
+
+.menu-item {
+    padding-top: 50px;
+    margin: auto;
+    display: flex;
     justify-content: center;
 }
