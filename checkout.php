@@ -8,6 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_S
     exit;
 }
 $loggedin_user = $_SESSION["username"];
+$total = 0;
 
 if(isset($_GET['item']) && isset($_GET['qty'])){
     $product_name = mysqli_real_escape_string($conn, $_GET['item']);
@@ -27,6 +28,17 @@ if(isset($_POST['cart'])){
 if(isset($_POST['checkout'])){
     header("location:checkout.php");
     exit;
+}
+
+if(isset($_POST['pay'])){
+    $payment_amount = mysqli_real_escape_string($conn, $_POST['paymentamount']);
+    if($payment_amount > $total){
+        echo 'Payment amount not enough!';
+    }
+    else {
+        $delete_cart = mysqli_query($conn, "DELETE FROM `cart` WHERE username='$loggedin_user'");
+        header('location:success.php');
+    }
 }
 
 
@@ -52,7 +64,7 @@ if(isset($_POST['checkout'])){
         <?php 
             $query = "SELECT * FROM `cart` WHERE username='$loggedin_user'";
             $results = mysqli_query($conn, $query);
-            $total = 0;
+            
         ?>
         <table>
             <thead>
@@ -86,16 +98,16 @@ if(isset($_POST['checkout'])){
         <form action="" method="post">
             <h3>Payment Method</h3>
             <div class="menu">
-                <input type="radio" id="html" name="paymentmethod" value="COD" checked="true" required>
+                <input type="radio" id="cod" name="paymentmethod" value="COD" checked="true" required>
                 <label>Cash on Delivery</label>
-                <input type="radio" id="css" name="paymentmethod" value="Card" required>
+                <input type="radio" id="card" name="paymentmethod" value="Card" required>
                 <label>Credit Card</label>
-                <input type="radio" id="javascript" name="paymentmethod" value="GCash" required>
+                <input type="radio" id="gcash" name="paymentmethod" value="GCash" required>
                 <label>GCash</label>
             </div>
             <div class="menu">
                 <h3>Payment Amount:</h3>
-                <input type="number" name="payment" value=0 min=0>
+                <input type="number" name="paymentamount" value=0 min=0>
             </div>
 
             
